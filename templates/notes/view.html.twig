@@ -3,9 +3,7 @@
 {% block title %}Notes{% endblock %}
 
 {% block body %}
-<a href="{{path('app_notes_new')}}" class="btn btn-primary float-end">Nouvelle Note</a>
-<h1>Mes notes</h1>
-{% for note in notes %}
+<a href="{{path('app_notes')}}" class="btn btn-secondary">Retour aux Notes</a>
 <div class="card mb-3">
     <div class="card-body">
         <h5 class="card-title">{{ note.title }}</h5>
@@ -17,10 +15,8 @@
                 <input type="hidden" name="_token" value="{{ csrf_token('note-' ~ note.id) }}">
                 <button type="submit" class="btn btn-danger">Supprimer</button>
             </form>
-            <a href="{{ path('app_notes_view', {'id': note.id} )}}" class="btn btn-primary">Voir</a>
             <a class="btn btn-outline-primary" href="{{ path('app_notes_edit', {'id': note.id})}}">Modifier</a>
         </div>
     </div>
 </div>
-{% endfor %}
 {% endblock %}

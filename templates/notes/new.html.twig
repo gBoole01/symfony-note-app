@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une Note{% endblock %}
+
+{% block body %}
+<h1>Ajouter une nouvelle note</h1>
+{{ form_start(form) }}
+<div class="mb-3">
+    {{ form_row(form.title) }}
+</div>
+<div class="mb-3">
+    {{ form_row(form.content) }}
+</div>
+<div class="text-end">
+    <a href="{{path('app_notes')}}" class="btn btn-secondary">Retour aux Notes</a>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</div>
+{{ form_end(form) }}
+
+{% endblock %}
